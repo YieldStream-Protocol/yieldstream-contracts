@@ -1,4 +1,4 @@
-use crate::{DataKey, YieldStreamVault};
+use crate::{DataKey, YieldStreamVault, YieldStreamVaultClient};
 use soroban_sdk::{contractimpl, token, Address, Env};
 
 #[contractimpl]
@@ -51,7 +51,7 @@ impl YieldStreamVault {
         let mut total_shares: i128 = env.storage().instance().get(&DataKey::TotalShares).unwrap();
 
         let underlying_client = token::Client::new(&env, &underlying);
-        let share_client = token::StellarAssetClient::new(&env, &share_token);
+        let share_client = token::Client::new(&env, &share_token);
 
         let vault_balance = underlying_client.balance(&env.current_contract_address());
 

@@ -1,4 +1,4 @@
-use crate::{DataKey, YieldStreamVault};
+use crate::{DataKey, YieldStreamVault, YieldStreamVaultClient};
 use soroban_sdk::{contractimpl, token, Address, Env};
 
 #[contractimpl]
